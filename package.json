@@ -1,0 +1,19 @@
+{
+  "name": "ycup2020",
+  "version": "1.0.0",
+  "description": "Yandex Cup 2020",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spektr/ycup2020.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Spektr/ycup2020/issues"
+  },
+  "homepage": "https://github.com/Spektr/ycup2020#readme"
+}
