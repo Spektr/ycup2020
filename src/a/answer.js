@@ -1,12 +1,26 @@
-function findLatestWeight(weights, i = weights.length - 1) {
-    const cur = weights.length - 1 === i;
+function pushResult(weight, weights) {
+    for (let i = 0; i < weights.length; i++) {
+        if (weight < weights[i]) {
+            weights.splice(i, 0 , weight);
+            return;
+        }
+    }
+}
 
-    if (i === 0) return weights[0];
+function findLatestWeight(weights) {
+    const immutableArray = [...weights];
+    immutableArray.sort((a, b) => a - b);
 
-    weights.sort((a, b) => a - b);
-    weights[i - 1] = (weights[i] === weights[i-1]) ? 0 : weights[i] - weights[i-1];
+    while(immutableArray.length > 1){
+        const first = immutableArray.pop();
+        const second = immutableArray.pop();
 
-    return findLatestWeight(weights, i - 1);
+        if(first !== second){
+            pushResult(first - second, immutableArray);
+        }
+    }
+
+    return immutableArray.pop() || 0;
 }
 
 module.exports = findLatestWeight;
