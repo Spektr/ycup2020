@@ -1,5 +1,5 @@
 function prepareString(value){
-    return value.replace(/\s+/g,' ').trim();
+    return value.replace(/\n+/g,'').replace(/\ +/g,' ').trim();
 }
 
 function getColumnStyles(tableElement) {
