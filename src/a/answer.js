@@ -1,26 +1,50 @@
-function pushResult(weight, weights) {
+function findMaxValues(weights) {
+    let first = 0;
+    let second = 0;
+    let firstId = 0;
+    let secondId = 0;
+
     for (let i = 0; i < weights.length; i++) {
-        if (weight < weights[i]) {
-            weights.splice(i, 0 , weight);
-            return;
+        const cur = weights[i];
+        if (cur <= second) {
+            continue;
         }
+
+        if (cur >= first) {
+            second = first;
+            secondId = firstId;
+            first = cur;
+            firstId = i;
+            continue;
+        }
+
+        second = cur;
+        secondId = i;
     }
+
+    return {first, second, firstId, secondId};
 }
 
 function findLatestWeight(weights) {
     const immutableArray = [...weights];
-    immutableArray.sort((a, b) => a - b);
 
-    while(immutableArray.length > 1){
-        const first = immutableArray.pop();
-        const second = immutableArray.pop();
+    do {
+        const {first, second, firstId, secondId} = findMaxValues(immutableArray);
 
-        if(first !== second){
-            pushResult(first - second, immutableArray);
+        if (second === 0 || first === 0) {
+            return first;
         }
-    }
 
-    return immutableArray.pop() || 0;
+        if(first === second){
+            immutableArray[firstId] = 0;
+            immutableArray[secondId] = 0;
+            continue;
+        }
+
+        immutableArray[firstId] = first - second;
+        immutableArray[secondId] = 0;
+
+    } while (true)
 }
 
 module.exports = findLatestWeight;
