@@ -1,0 +1,75 @@
+<style>
+    * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .bg {
+        background-color: #06398a;
+        width: 512px;
+        height: 512px;
+        position: relative;
+    }
+
+    .bg * {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .moon {
+        border-radius: 50%;
+        background-color: #c9ccd1;
+        width: 240px;
+        height: 240px;
+        top: 78px;
+        left: 78px;
+        overflow: hidden;
+    }
+
+    .f {
+        border-radius: 50%;
+        background-color: #ffffff;
+    }
+
+    .f1 {
+        width: 10px;
+        height: 10px;
+        top: 20px;
+        left: 105px;
+    }
+
+    .f2 {
+        width: 30px;
+        height: 30px;
+        top: 25px;
+        left: 120px;
+    }
+
+    .f3 {
+        background-color: #b0b3b8;
+        width: 50px;
+        height: 50px;
+        top: 130px;
+        left: 130px;
+    }
+
+    .sw {
+        background-color: #e1e6ea;
+        width: 100%;
+        height: 255px;
+        border-radius: 50%;
+        left: -25px;
+        top: -33px;
+        transform: rotate(45deg);
+    }
+</style>
+
+<div class="bg">
+    <div class="moon">
+        <div class="sw"></div>
+        <div class="f f1"></div>
+        <div class="f f2"></div>
+        <div class="f f3"></div>
+    </div>
+</div>
